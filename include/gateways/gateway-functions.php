@@ -20,9 +20,11 @@ add_action( 'plugins_loaded', 'leaky_paywall_load_gateway_files', 9999 );
  * @since  		4.0.0	
  * @return      array
 */
-function leaky_paywall_get_payment_gateways() {
-	$gateways = new Leaky_Paywall_Payment_Gateways;
-	return $gateways->available_gateways;
+if ( !function_exists( 'leaky_paywall_get_payment_gateways' ) ) {
+	function leaky_paywall_get_payment_gateways() {
+		$gateways = new Leaky_Paywall_Payment_Gateways;
+		return $gateways->available_gateways;
+	}
 }
 
 
