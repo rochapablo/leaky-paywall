@@ -46,7 +46,7 @@ class Leaky_Paywall_Payment_Gateways {
 	 * @since  4.0.0 
 	 * @return array
 	 */
-	private function get_gateways() {
+	protected function get_gateways() {
 
 		$gateways = array(
 			// 'manual'	=> array(
