@@ -250,7 +250,7 @@ if ( ! class_exists( 'Leaky_Paywall' ) ) {
 				'renewal_reminder_email_body'	=> '',
 				'renewal_reminder_days_before'   => '7',
 				'new_subscriber_admin_email'	=> 'off',
-				'payment_gateway'				=> array( 'stripe_checkout' ),
+				'payment_gateway'				=> array( 'stripe_checkout', 'akirede_checkout' ),
 				'test_mode'						=> 'off',
 				'live_secret_key'				=> '',
 				'live_publishable_key'			=> '',
@@ -526,7 +526,7 @@ if ( ! class_exists( 'Leaky_Paywall' ) ) {
 						$settings['test_mode'] = $_REQUEST['test_mode'];
 					else
 						$settings['test_mode'] = apply_filters( 'zeen101_demo_test_mode', 'off' );
-						
+
 					if ( !empty( $_REQUEST['payment_gateway'] ) )
 						$settings['payment_gateway'] = $_REQUEST['payment_gateway'];
 					else
@@ -1136,6 +1136,48 @@ if ( ! class_exists( 'Leaky_Paywall' ) ) {
 		                            
 		                        </table>
 		
+		                    <?php } ?>
+
+							<?php
+	                        if ( in_array( 'akirede', $settings['payment_gateway'] ) || in_array( 'akirede_checkout', $settings['payment_gateway']) ) {
+		                    ob_start(); // Akirede Ecommerce Level ?
+	                        ?>
+	                        <table id="leaky_paywall_akirede_options" class="form-table">
+		                        <tr><th colspan="2">
+		                        	<h3><?php _e( 'Akirede Settings', 'leaky-paywall' ); ?></h3>
+		                        	<?php if ( !isset( $settings['live_publishable_key'] ) || ! $settings['live_publishable_key'] ) {
+		                        		?>
+		                        		<p>Looking for your Stripe keys? <a target="_blank" href="https://dashboard.stripe.com/account/apikeys">Click here.</a></p>
+		                        		<?php 
+		                        	} ?>
+		                        </th>
+								</tr>
+	                        	<tr>
+	                                <th><?php _e( 'Live Secret Key', 'leaky-paywall' ); ?></th>
+	                                <td><input type="text" id="live_secret_key" class="regular-text" name="akirede_live_secret_key" value="<?php echo htmlspecialchars( stripcslashes( $settings['live_secret_key'] ) ); ?>" /></td>
+	                            </tr>
+	                        	<tr>
+	                                <th><?php _e( 'Live Publishable Key', 'leaky-paywall' ); ?></th>
+	                                <td><input type="text" id="live_publishable_key" class="regular-text" name="akirede_live_publishable_key" value="<?php echo htmlspecialchars( stripcslashes( $settings['live_publishable_key'] ) ); ?>" /></td>
+	                            </tr>
+	                            <tr>
+	                            	<th><?php _e( 'Live Webhooks', 'leaky-paywall' ); ?></th>
+	                            	<td><p class="description"><?php echo esc_url( add_query_arg( 'listener', 'stripe', get_site_url() . '/' ) ); ?></p></td>
+	                            </tr>
+	                        	<tr>
+	                                <th><?php _e( 'Test Secret Key', 'leaky-paywall' ); ?></th>
+	                                <td><input type="text" id="test_secret_key" class="regular-text" name="akirede_test_secret_key" value="<?php echo htmlspecialchars( stripcslashes( $settings['test_secret_key'] ) ); ?>" /></td>
+	                            </tr>
+	                        	<tr>
+	                                <th><?php _e( 'Test Publishable Key', 'leaky-paywall' ); ?></th>
+	                                <td><input type="text" id="test_publishable_key" class="regular-text" name="akirede_test_publishable_key" value="<?php echo htmlspecialchars( stripcslashes( $settings['test_publishable_key'] ) ); ?>" /></td>
+	                            </tr>
+	                            <tr>
+	                            	<th><?php _e( 'Test Webhooks', 'leaky-paywall' ); ?></th>
+	                            	<td><p class="description"><?php echo esc_url( add_query_arg( 'listener', 'akirede', get_site_url() . '/' ) ); ?></p></td>
+	                            </tr>
+	                        </table>
+							<?php echo apply_filters( 'leaky_paywall_settings_page_akirede_payment_gateway_options', ob_get_clean() ); ?>
 		                    <?php } ?>
 	                        
 	                        <?php wp_nonce_field( 'issuem_leaky_general_options', 'issuem_leaky_general_options_nonce' ); ?>
