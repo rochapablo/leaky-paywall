@@ -1156,11 +1156,6 @@ if ( ! class_exists( 'Leaky_Paywall' ) ) {
 	                        <table id="leaky_paywall_akirede_options" class="form-table">
 		                        <tr><th colspan="2">
 		                        	<h3><?php _e( 'Akirede Settings', 'leaky-paywall' ); ?></h3>
-		                        	<?php if ( !isset( $settings['akirede_live_publishable_key'] ) || ! $settings['akirede_live_publishable_key'] ) {
-		                        		?>
-		                        		<p>Looking for your Akirede keys? <a target="_blank" href="https://dashboard.akirede.com/account/apikeys">Click here.</a></p>
-		                        		<?php 
-		                        	} ?>
 		                        </th>
 								</tr>
 	                        	<tr>
