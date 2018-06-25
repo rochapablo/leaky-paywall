@@ -149,7 +149,7 @@ function leaky_paywall_get_stripe_plan( $level, $level_id , $plan_args ) {
         $settings['levels'][$level_id]['plan_id'] = $stripe_plan->id;
         update_leaky_paywall_settings( $settings );
    
-    }
+	}	
 
     return $stripe_plan;
 
@@ -175,7 +175,7 @@ function leaky_paywall_create_stripe_plan( $level, $level_id , $plan_args ) {
     );
 
     try {
-    	$stripe_plan = \Stripe\Plan::create( apply_filters( 'leaky_paywall_create_stripe_plan', $args, $level, $level_id ) );
+		$stripe_plan = \Stripe\Plan::create( apply_filters( 'leaky_paywall_create_stripe_plan', $args, $level, $level_id ) );		
     } catch (Exception $e) {
     	$stripe_plan = false;
     }
