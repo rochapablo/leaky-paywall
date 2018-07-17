@@ -136,10 +136,7 @@ class Leaky_Paywall_Payment_Gateway_Stripe extends Leaky_Paywall_Payment_Gateway
 					'secret_key'	=> $this->secret_key
 				);
 
-				$stripe_plan = leaky_paywall_create_stripe_plan( $level, $this->level_id, $plan_args );
-
-				var_dump($stripe_plan);
-		exit();
+				$stripe_plan = leaky_paywall_create_stripe_plan( $level, $this->level_id, $plan_args );				
 		
 				$this->plan_id = $stripe_plan->id;
 
