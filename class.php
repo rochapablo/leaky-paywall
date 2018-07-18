@@ -258,16 +258,8 @@ if ( ! class_exists( 'Leaky_Paywall' ) ) {
 				'test_publishable_key'			=> '',
 
 				// Akirede
-<<<<<<< HEAD
 				'akirede_live_secret_key'				=> '',
 				'akirede_test_secret_key'				=> '',
-=======
-				'akirede_test_mode'						=> 'off',
-				'akirede_live_secret_key'				=> '',
-				'akirede_live_publishable_key'			=> '',
-				'akirede_test_secret_key'				=> '',
-				'akirede_test_publishable_key'			=> '',
->>>>>>> 8f8a323736dccc25d5010780c1ee764854d2bbdc
 				
 				'enable_paypal_on_registration' => 'off',
 				'paypal_live_email'				=> '',
@@ -558,33 +550,12 @@ if ( ! class_exists( 'Leaky_Paywall' ) ) {
 						$settings['test_publishable_key'] = apply_filters( 'zeen101_demo_stripe_test_publishable_key', trim( $_REQUEST['test_publishable_key'] ) );
 
 					// Akirede
-<<<<<<< HEAD
 					if ( !empty( $_REQUEST['akirede_live_secret_key'] ) )
 						$settings['akirede_live_secret_key'] = apply_filters( 'zeen101_demo_akirede_live_secret_key', trim( $_REQUEST['akirede_live_secret_key'] ) );
 						
 					if ( !empty( $_REQUEST['akirede_test_secret_key'] ) )
 						$settings['akirede_test_secret_key'] = apply_filters( 'zeen101_demo_akirede_test_secret_key', trim( $_REQUEST['akirede_test_secret_key'] ) );
 						
-=======
-					if ( !empty( $_REQUEST['akirede_test_mode'] ) )
-						$settings['akirede_test_mode'] = $_REQUEST['akirede_test_mode'];
-					else
-						$settings['akirede_test_mode'] = apply_filters( 'zeen101_demo_test_mode', 'off' );
-
-					if ( !empty( $_REQUEST['akirede_live_secret_key'] ) )
-						$settings['akirede_live_secret_key'] = apply_filters( 'zeen101_demo_akirede_live_secret_key', trim( $_REQUEST['akirede_live_secret_key'] ) );
-						
-					if ( !empty( $_REQUEST['akirede_live_publishable_key'] ) )
-						$settings['akirede_live_publishable_key'] = apply_filters( 'zeen101_demo_akirede_live_publishable_key', trim( $_REQUEST['akirede_live_publishable_key'] ) );
-						
-					if ( !empty( $_REQUEST['akirede_test_secret_key'] ) )
-						$settings['akirede_test_secret_key'] = apply_filters( 'zeen101_demo_akirede_test_secret_key', trim( $_REQUEST['akirede_test_secret_key'] ) );
-						
-					if ( !empty( $_REQUEST['akirede_test_publishable_key'] ) )
-						$settings['akirede_test_publishable_key'] = apply_filters( 'zeen101_demo_akirede_test_publishable_key', trim( $_REQUEST['akirede_test_publishable_key'] ) );
-					
-					
->>>>>>> 8f8a323736dccc25d5010780c1ee764854d2bbdc
 
 					if ( !empty( $_REQUEST['enable_paypal_on_registration'] ) )
 						$settings['enable_paypal_on_registration'] = $_REQUEST['enable_paypal_on_registration'];
@@ -1185,45 +1156,15 @@ if ( ! class_exists( 'Leaky_Paywall' ) ) {
 	                        <table id="leaky_paywall_akirede_options" class="form-table">
 		                        <tr><th colspan="2">
 		                        	<h3><?php _e( 'Akirede Settings', 'leaky-paywall' ); ?></h3>
-<<<<<<< HEAD
-=======
-		                        	<?php if ( !isset( $settings['akirede_live_publishable_key'] ) || ! $settings['akirede_live_publishable_key'] ) {
-		                        		?>
-		                        		<p>Looking for your Akirede keys? <a target="_blank" href="https://dashboard.akirede.com/account/apikeys">Click here.</a></p>
-		                        		<?php 
-		                        	} ?>
->>>>>>> 8f8a323736dccc25d5010780c1ee764854d2bbdc
 		                        </th>
 								</tr>
 	                        	<tr>
 	                                <th><?php _e( 'Live Secret Key', 'leaky-paywall' ); ?></th>
 	                                <td><input type="text" id="akirede_live_secret_key" class="regular-text" name="akirede_live_secret_key" value="<?php echo htmlspecialchars( stripcslashes( $settings['akirede_live_secret_key'] ) ); ?>" /></td>
-<<<<<<< HEAD
-=======
-	                            </tr>
-	                        	<tr>
-	                                <th><?php _e( 'Live Publishable Key', 'leaky-paywall' ); ?></th>
-	                                <td><input type="text" id="akirede_live_publishable_key" class="regular-text" name="akirede_live_publishable_key" value="<?php echo htmlspecialchars( stripcslashes( $settings['akirede_live_publishable_key'] ) ); ?>" /></td>
-	                            </tr>
-	                            <tr>
-	                            	<th><?php _e( 'Live Webhooks', 'leaky-paywall' ); ?></th>
-	                            	<td><p class="description"><?php echo esc_url( add_query_arg( 'listener', 'akirede', get_site_url() . '/' ) ); ?></p></td>
->>>>>>> 8f8a323736dccc25d5010780c1ee764854d2bbdc
 	                            </tr>
 	                        	<tr>
 	                                <th><?php _e( 'Test Secret Key', 'leaky-paywall' ); ?></th>
 	                                <td><input type="text" id="akirede_test_secret_key" class="regular-text" name="akirede_test_secret_key" value="<?php echo htmlspecialchars( stripcslashes( $settings['akirede_test_secret_key'] ) ); ?>" /></td>
-<<<<<<< HEAD
-=======
-	                            </tr>
-	                        	<tr>
-	                                <th><?php _e( 'Test Publishable Key', 'leaky-paywall' ); ?></th>
-	                                <td><input type="text" id="akirede_test_publishable_key" class="regular-text" name="akirede_test_publishable_key" value="<?php echo htmlspecialchars( stripcslashes( $settings['akirede_test_publishable_key'] ) ); ?>" /></td>
-	                            </tr>
-	                            <tr>
-	                            	<th><?php _e( 'Test Webhooks', 'leaky-paywall' ); ?></th>
-	                            	<td><p class="description"><?php echo esc_url( add_query_arg( 'listener', 'akirede', get_site_url() . '/' ) ); ?></p></td>
->>>>>>> 8f8a323736dccc25d5010780c1ee764854d2bbdc
 	                            </tr>
 	                        </table>
 							<?php echo apply_filters( 'leaky_paywall_settings_page_akirede_payment_gateway_options', ob_get_clean() ); ?>
