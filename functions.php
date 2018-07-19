@@ -1495,6 +1495,10 @@ if ( !function_exists( 'build_leaky_paywall_subscription_levels_row' ) ) {
 		$default = array(
 			'label' 					=> '',
 			'price' 					=> '',
+			'price_original' 			=> '',
+			'image' 					=> '',
+			'background' 				=> '',
+			'description' 				=> '',
 			'subscription_length_type' 	=> 'limited',
 			'interval_count' 			=> 1,
 			'interval' 					=> 'month',
@@ -1568,6 +1572,43 @@ if ( !function_exists( 'build_leaky_paywall_subscription_levels_row' ) ) {
 				<td>
 					<input id="level-price-<?php echo $row_key; ?>" type="text" class="small-text" name="levels[<?php echo $row_key; ?>][price]" value="<?php echo stripcslashes( $level['price'] ); ?>" />
 					<p class="description"><?php _e( '0 for Free Subscriptions', 'leaky-paywall' ); ?></p>
+				</td>
+			</tr>
+
+			<tr>
+				<th>
+					<label for="level-price-original-<?php echo $row_key; ?>"><?php _e( 'Subscription Original Price', 'leaky-paywall' ); ?></label>
+				</th>
+				<td>
+					<input id="level-price-original-<?php echo $row_key; ?>" type="text" class="small-text" name="levels[<?php echo $row_key; ?>][price_original]" value="<?php echo stripcslashes( $level['price_original'] ); ?>" />
+					<p class="description"><?php _e( '0 for Free Subscriptions', 'leaky-paywall' ); ?></p>
+				</td>
+			</tr>
+
+			<tr>
+				<th>
+					<label for="level-image-<?php echo $row_key; ?>"><?php _e( 'Image', 'leaky-paywall' ); ?></label>
+				</th>
+				<td>
+					<input id="level-image-<?php echo $row_key; ?>" type="text" name="levels[<?php echo $row_key; ?>][image]" value="<?php echo stripcslashes( $level['image'] ); ?>" />
+				</td>
+			</tr>
+
+			<tr>
+				<th>
+					<label for="level-background-<?php echo $row_key; ?>"><?php _e( 'Background', 'leaky-paywall' ); ?></label>
+				</th>
+				<td>
+					<input id="level-background-<?php echo $row_key; ?>" type="text" name="levels[<?php echo $row_key; ?>][background]" value="<?php echo stripcslashes( $level['background'] ); ?>" />
+				</td>
+			</tr>
+
+			<tr>
+				<th>
+					<label for="level-description-<?php echo $row_key; ?>"><?php _e( 'Description', 'leaky-paywall' ); ?></label>
+				</th>
+				<td>
+					<input id="level-description-<?php echo $row_key; ?>" type="text" name="levels[<?php echo $row_key; ?>][description]" value="<?php echo stripcslashes( $level['description'] ); ?>" />
 				</td>
 			</tr>
 				
